@@ -14,29 +14,29 @@ export default Header
 
 const styles = StyleSheet.create({
     viewHead: {
-        backgroundColor: '#FFFFFF',
+        backgroundColor: '#00A6FB',
         flexDirection: 'row',
         width: '100%',
-        // height: '7%',
         alignItems: 'center',
-        paddingLeft: 20,
-        paddingRight: 20,
+        paddingLeft: 10,
+        paddingRight: 10,
         paddingTop: 7,
         paddingBottom: 7,
-        borderBottomColor: '#0582CA',
-        borderBottomWidth: 1,
+        // borderBottomColor: '#0582CA',
+        // borderBottomWidth: 1,
         shadowColor: 'black',
     },
     textHead: {
         fontStyle: 'italic',
         fontWeight: 'bold',
-        fontSize: 25,
-        color: '#00A6FB'
+        fontSize: 35,
+        color: '#FFFFFF',
+
     },
     textNotif: {
         fontStyle: 'italic',
         marginLeft: 'auto',
         fontSize: 20,
-        color: '#00A6FB'
+        color: '#FFFFFF'
     }
 })
