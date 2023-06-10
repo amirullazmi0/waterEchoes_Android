@@ -8,32 +8,29 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import React, { useState } from 'react'
 
 import Dashboard from './Dashboard'
+import Table from './Table'
+import Profil from './Profil'
 
 function HomeScreen({ navigation }) {
     const [active, setActive] = useState('dashboard')
-
     const navActive = (e) => {
         if (e == 'profil') {
             setActive('profil')
-            return (<Dashboard />)
         } else if (e == 'dashboard') {
             setActive('dashboard')
-            return (<Dashboard />)
         } else if (e == 'table') {
             setActive('table')
-            return (<Dashboard />)
         } else if (e == 'prediction') {
             setActive('prediction')
-            return (<Dashboard />)
         } else if (e == 'action') {
             setActive('action')
-            return (<Dashboard />)
         }
     }
-
     return (
         <View style={styles.body}>
-            {navActive}
+            {active == 'dashboard' && <Dashboard />}
+            {active == 'action' && <Table />}
+            {active == 'profil' && <Profil />}
             <View style={styles.viewNav}>
                 <TouchableOpacity
                     onPress={() => {
@@ -94,7 +91,7 @@ const styles = StyleSheet.create({
     },
     viewNav: {
         marginTop: 'auto',
-        height: '8%',
+        height: '9%',
         backgroundColor: 'white',
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -102,12 +99,9 @@ const styles = StyleSheet.create({
         padding: 2,
         paddingLeft: 10,
         paddingRight: 10,
-        // margin: 10,
         width: '100%',
-        borderTopLeftRadius: 40,
-        borderTopRightRadius: 40,
-        // borderColor: '#ffc300',
-        // borderTopWidth: 17
+        borderTopLeftRadius: 0,
+        borderTopRightRadius: 0,
     },
     navItem: {
         // backgroundColor: '#00A6FB',

@@ -7,22 +7,18 @@ import {
     ScrollView
 } from 'react-native'
 import React, { useState } from 'react'
-import { NavigationContainer } from '@react-navigation/native'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
-
-import Card from './component/Card'
 import Header from './component/Header'
-import Navigation from './Navigation'
+import Card from './component/Card';
 
-
-export default function Dashboard() {
+export default function Table() {
     return (
         <>
             <View style={styles.viewMain}>
                 <ScrollView>
                     <Header />
                     <View style={styles.viewScroll}>
-                        <View style={styles.viewSensor}>
+                        <Text>This Table</Text>
+                        {/* <View style={styles.viewSensor}>
                             <Card value={70.9} />
                             <Card value={108.12} />
                             <Card value={32.3} />
@@ -30,18 +26,13 @@ export default function Dashboard() {
                             <Card value={357.32} />
                         </View>
                         <View style={styles.viewGraph}>
-                            {/* <Image
-                                source={require('./assets/Grafik.png')}
-                                style={{ width: '100%', height: 200, borderRadius: 10, marginBottom: 10 }}
-                            /> */}
-                        </View>
+                        </View> */}
                     </View>
                 </ScrollView>
             </View>
         </>
-    );
+    )
 }
-
 
 const styles = StyleSheet.create({
     body: {

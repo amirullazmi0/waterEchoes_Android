@@ -13,9 +13,11 @@ function HomeScreen({ navigation }) {
     const [active, setActive] = useState('dashboard')
     const navActive = (e) => {
         if (e == 'profil') {
+            
             setActive('profil')
         } else if (e == 'dashboard') {
             setActive('dashboard')
+            return
         } else if (e == 'table') {
             setActive('table')
         } else if (e == 'prediction') {
@@ -26,6 +28,7 @@ function HomeScreen({ navigation }) {
     }
     return (
         <View style={styles.viewNav}>
+            {navActive()}
             <TouchableOpacity
                 onPress={() => {
                     navigation.goBack();
