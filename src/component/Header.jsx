@@ -14,6 +14,7 @@ export default Header
 
 const styles = StyleSheet.create({
     viewHead: {
+        // backgroundColor: '#00A6FB',
         backgroundColor: '#00A6FB',
         flexDirection: 'row',
         width: '100%',
@@ -21,15 +22,12 @@ const styles = StyleSheet.create({
         paddingLeft: 10,
         paddingRight: 10,
         paddingTop: 7,
-        paddingBottom: 7,
-        // borderBottomColor: '#0582CA',
-        // borderBottomWidth: 1,
-        shadowColor: 'black',
+        paddingBottom: 160,
     },
     textHead: {
         fontStyle: 'italic',
         fontWeight: 'bold',
-        fontSize: 35,
+        fontSize: 20,
         color: '#FFFFFF',
 
     },

@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const card = () => {
+const card = ({ value }) => {
     return (
         <View style={styles.viewCard}>
-            <Text style={styles.textCard}> 78.67</Text>
+            <Text style={styles.textCard}>{value}</Text>
         </View>
     )
 }
@@ -13,13 +13,13 @@ export default card
 
 const styles = StyleSheet.create({
     viewCard: {
-        padding: 20,
+        padding: 10,
         backgroundColor: '#FFFFFF',
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 20,
-        height: 180,
-        width: 180
+        height: 150,
+        width: 150
     },
     textCard: {
         textAlign: 'center',

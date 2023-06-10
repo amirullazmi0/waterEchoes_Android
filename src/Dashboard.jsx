@@ -3,18 +3,33 @@ import {
     Text,
     StyleSheet,
     TouchableOpacity,
-    SafeAreaView,
+    Image,
     ScrollView
 } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
 import Card from './component/Card'
 import Header from './component/Header'
+import Navigation from './Navigation'
 
 
-function HomeScreen({ navigation }) {
+export default function Dashboard() {
+    const [active, setActive] = useState('dashboard')
+    const navActive = (e) => {
+        if (e == 'profil') {
+            setActive('profil')
+        } else if (e == 'dashboard') {
+            setActive('dashboard')
+        } else if (e == 'table') {
+            setActive('table')
+        } else if (e == 'prediction') {
+            setActive('prediction')
+        } else if (e == 'action') {
+            setActive('action')
+        }
+    }
     return (
         <View style={styles.body}>
             <View style={styles.viewMain}>
@@ -22,72 +37,30 @@ function HomeScreen({ navigation }) {
                     <Header />
                     <View style={styles.viewScroll}>
                         <View style={styles.viewSensor}>
-                            <View style={styles.viewCard}>
-                                <Card />
-                            </View>
-                            <View style={styles.viewCard}>
-                                <Card />
-                            </View>
-                            <View style={styles.viewCard}>
-                                <Card />
-                            </View>
-                            <View style={styles.viewCard}>
-                                <Card />
-                            </View>
-                            <View style={styles.viewCard}>
-                                <Card />
-                            </View>
+                            <Card value={70.9} />
+                            <Card value={108.12} />
+                            <Card value={32.3} />
+                            <Card value={1268.65} />
+                            <Card value={357.32} />
                         </View>
                         <View style={styles.viewGraph}>
-
+                            {/* <Image
+                                source={require('./assets/Grafik.png')}
+                                style={{ width: '100%', height: 200, borderRadius: 10, marginBottom: 10 }}
+                            /> */}
                         </View>
                     </View>
                 </ScrollView>
             </View>
-            <View style={styles.viewNav}>
-                <TouchableOpacity
-                    onPress={() => {
-                        navigation.goBack();
-                    }}
-                    style={styles.navItem}
-                >
-                    <Text style={styles.navText}>Nav</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.navItem}>
-                    <Text style={styles.navText}>Nav</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.navItem}>
-                    <Text style={styles.navText}>Nav</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.navItem}>
-                    <Text style={styles.navText}>Nav</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.navItem}>
-                    <Text style={styles.navText}>Nav</Text>
-                </TouchableOpacity>
-            </View>
-        </View>
+        </View >
     );
-}
-
-const Stack = createNativeStackNavigator();
-
-export default function Dashboard() {
-    return (
-        <Stack.Navigator>
-            <Stack.Screen
-                name="Home"
-                component={HomeScreen}
-                options={{ headerShown: false }}
-            />
-        </Stack.Navigator>
-    )
 }
 
 
 const styles = StyleSheet.create({
     body: {
-        backgroundColor: '#00A6FB',
+        // backgroundColor: '#00A6FB',
+        backgroundColor: '#edf2fb',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
@@ -100,27 +73,32 @@ const styles = StyleSheet.create({
         paddingRight: 0,
         paddingBottom: 10,
         width: '100%',
-        height: '95%',
+        // height: '95%',
     },
     viewScroll: {
-        padding: 10,
+        // padding: 10,
         flexDirection: 'column',
     },
     viewSensor: {
         flexDirection: 'row',
+        paddingLeft: 40,
+        paddingRight: 40,
+        marginTop: -80,
+        marginBottom: 20,
         flexWrap: 'wrap',
-        gap: 10
+        justifyContent: 'space-between',
+        gap: 10,
     },
     viewGraph: {
-        height: 300,
+        width: '100%',
+        padding: 10,
+        paddingTop: 30,
+        paddingBottom: 600,
         marginTop: 10,
-        borderRadius: 20,
-        backgroundColor: '#003554'
-    },
-    viewCard: {
-        marginRight: 'auto',
-        // width: '48%',
-        // flex: 2
+        borderTopLeftRadius: 40,
+        borderTopRightRadius: 40,
+        // backgroundColor: '#003554'
+        backgroundColor: '#d7e3fc'
     },
     btnLogin: {
         backgroundColor: '#FFC300',
@@ -138,7 +116,7 @@ const styles = StyleSheet.create({
     },
     viewNav: {
         marginTop: 'auto',
-        height: '12%',
+        height: '8%',
         backgroundColor: 'white',
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -147,21 +125,29 @@ const styles = StyleSheet.create({
         paddingLeft: 10,
         paddingRight: 10,
         // margin: 10,
-        borderColor: '#ffc300',
         width: '100%',
         borderTopLeftRadius: 40,
         borderTopRightRadius: 40,
-        borderTopWidth: 10
+        // borderColor: '#ffc300',
+        // borderTopWidth: 17
     },
     navItem: {
         // backgroundColor: '#00A6FB',
-        borderRadius: 30,
+        borderRadius: 20,
         paddingLeft: 20,
         paddingRight: 20,
         // top: -40,
     },
+    navActive: {
+        backgroundColor: '#00A6FB',
+        padding: 5,
+    },
     navText: {
         color: '#00A6FB',
+        fontSize: 20
+    },
+    textActive: {
+        color: '#FFFFFF',
         fontSize: 20
     }
 })
