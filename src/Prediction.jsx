@@ -4,16 +4,16 @@ import {
     ScrollView
 } from 'react-native'
 import React, { useState } from 'react'
-import CardProfil from './component/CardProfil'
-import HeaderProfil from './component/HeaderProfil'
+import CardTable from './component/CardTable'
+import HeaderTable from './component/HeaderTable'
 
-export default function Profil() {
+export default function Prediction() {
     return (
         <View style={styles.body}>
             <ScrollView style={styles.viewScroll}>
-                <HeaderProfil />
+                <HeaderTable />
                 <View style={styles.viewMain}>
-                    <CardProfil />
+                    <CardTable />
                 </View>
             </ScrollView>
         </View>

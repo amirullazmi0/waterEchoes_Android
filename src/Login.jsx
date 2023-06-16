@@ -1,8 +1,17 @@
-import { View, Text, StyleSheet, TextInput, Alert, TouchableOpacity, Image, Button } from 'react-native'
+import {
+    View,
+    Text,
+    StyleSheet,
+    TextInput,
+    TouchableOpacity,
+    Image,
+    StatusBar
+} from 'react-native'
 import React from 'react'
-import { NavigationContainer } from '@react-navigation/native'
+import { NavigationContainer, useNavigation } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import Navigation from './Navigation'
+import Navbar from './component/Navbar'
 
 
 const Stack = createNativeStackNavigator();
@@ -10,6 +19,7 @@ const Stack = createNativeStackNavigator();
 function HomeScreen({ navigation }) {
     return (
         <View style={styles.body}>
+            <StatusBar backgroundColor="#00A6FB" />
             {/* <Image source={require('./my-icon.png')} /> */}
             <View style={styles.viewForm}>
                 <Text style={styles.textLogin}>Sign In</Text>
@@ -39,20 +49,22 @@ function HomeScreen({ navigation }) {
 }
 export default function Login() {
     return (
-        <NavigationContainer>
-            <Stack.Navigator>
-                <Stack.Screen
-                    name="Home"
-                    component={HomeScreen}
-                    options={{ headerShown: false }}
-                />
-                <Stack.Screen
-                    name="Navbar"
-                    component={Navigation}
-                    options={{ headerShown: false }}
-                />
-            </Stack.Navigator>
-        </NavigationContainer>
+        <>
+            <NavigationContainer>
+                <Stack.Navigator>
+                    <Stack.Screen
+                        name="Home"
+                        component={HomeScreen}
+                        options={{ headerShown: false }}
+                    />
+                    <Stack.Screen
+                        name="Navbar"
+                        component={Navigation}
+                        options={{ headerShown: false }}
+                    />
+                </Stack.Navigator>
+            </NavigationContainer>
+        </>
     )
 }
 
@@ -91,8 +103,8 @@ const styles = StyleSheet.create({
     btnLogin: {
         backgroundColor: '#FFC300',
         marginTop: 10,
-        padding: 10,
-        borderRadius: 15,
+        padding: 5,
+        borderRadius: 10,
         width: '50%',
         alignItems: 'center',
     },

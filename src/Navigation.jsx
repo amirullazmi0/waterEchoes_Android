@@ -10,6 +10,7 @@ import React, { useState } from 'react'
 import Dashboard from './Dashboard'
 import Table from './Table'
 import Profil from './Profil'
+import Icon, { FA5Style } from 'react-native-vector-icons/FontAwesome5'
 
 function HomeScreen({ navigation }) {
     const [active, setActive] = useState('dashboard')
@@ -29,7 +30,7 @@ function HomeScreen({ navigation }) {
     return (
         <View style={styles.body}>
             {active == 'dashboard' && <Dashboard />}
-            {active == 'action' && <Table />}
+            {active == 'table' && <Table />}
             {active == 'profil' && <Profil />}
             <View style={styles.viewNav}>
                 <TouchableOpacity
@@ -38,27 +39,43 @@ function HomeScreen({ navigation }) {
                     }}
                     style={styles.navItem}
                 >
-                    <Text style={styles.navText}>T</Text>
+                    <Icon style={styles.navText} name={"exclamation"} size={22} light />
                 </TouchableOpacity>
                 <TouchableOpacity
                     style={active == 'prediction' ? [styles.navItem, styles.navActive] : [styles.navItem]}
                     onPress={() => navActive('prediction')}>
-                    <Text style={active == 'prediction' ? [styles.navText, styles.textActive] : [styles.navText]}>P</Text>
+                    {active == 'prediction' ?
+                        <Icon style={styles.navTextActive} name={"tree"} size={22} />
+                        :
+                        <Icon style={styles.navText} name={"tree"} size={22} />
+                    }
                 </TouchableOpacity>
                 <TouchableOpacity
                     style={active == 'dashboard' ? [styles.navItem, styles.navActive] : [styles.navItem]}
                     onPress={() => navActive('dashboard')}>
-                    <Text style={active == 'dashboard' ? [styles.navText, styles.textActive] : [styles.navText]}>H</Text>
+                    {active == 'dashboard' ?
+                        <Icon style={styles.navTextActive} name={"water"} size={22} />
+                        :
+                        <Icon style={styles.navText} name={"water"} size={22} />
+                    }
                 </TouchableOpacity>
                 <TouchableOpacity
-                    style={active == 'action' ? [styles.navItem, styles.navActive] : [styles.navItem]}
-                    onPress={() => navActive('action')}>
-                    <Text style={active == 'action' ? [styles.navText, styles.textActive] : [styles.navText]}>T</Text>
+                    style={active == 'table' ? [styles.navItem, styles.navActive] : [styles.navItem]}
+                    onPress={() => navActive('table')}>
+                    {active == 'table' ?
+                        <Icon style={styles.navTextActive} name={"table"} size={22} />
+                        :
+                        <Icon style={styles.navText} name={"table"} size={22} />
+                    }
                 </TouchableOpacity>
                 <TouchableOpacity
                     style={active == 'profil' ? [styles.navItem, styles.navActive] : [styles.navItem]}
                     onPress={() => navActive('profil')}>
-                    <Text style={active == 'profil' ? [styles.navText, styles.textActive] : [styles.navText]}>P</Text>
+                    {active == 'profil' ?
+                        <Icon style={styles.navTextActive} name={"user"} size={22} />
+                        :
+                        <Icon style={styles.navText} name={"user"} size={22} />
+                    }
                 </TouchableOpacity>
             </View>
         </View>
@@ -111,15 +128,24 @@ const styles = StyleSheet.create({
         // top: -40,
     },
     navActive: {
-        backgroundColor: '#00A6FB',
-        padding: 5,
+        // backgroundColor: '#00A6FB',
+        // padding: 5,
     },
     navText: {
         color: '#00A6FB',
-        fontSize: 20
+        textAlign: 'center',
+        top: 7,
+        width: 35,
+        height: 35,
+        // fontSize: 20
     },
-    textActive: {
-        color: '#FFFFFF',
-        fontSize: 20
-    }
+    navTextActive: {
+        color: '#00A6FB',
+        textAlign: 'center',
+        borderBottomColor: '#00A6FB',
+        borderBottomWidth: 1,
+        width: 35,
+        height: 35,
+        // fontSize: 20
+    },
 })

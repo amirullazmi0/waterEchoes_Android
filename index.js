@@ -3,9 +3,8 @@
  */
 
 import { AppRegistry } from 'react-native';
-import App from './App';
-import Login from './src/Login';
 import { name as appName } from './app.json';
-import Coba from './src/Coba';
+import Routing from './src/Routing';
+import Login from './src/Login';
 
-AppRegistry.registerComponent(appName, () => Login);
+AppRegistry.registerComponent(appName, () => Routing);
