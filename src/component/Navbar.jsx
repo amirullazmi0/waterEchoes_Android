@@ -73,6 +73,7 @@ export default Navbar
 const styles = StyleSheet.create({
     viewNav: {
         marginTop: 'auto',
+        elevation: 1,
         backgroundColor: 'white',
         flexDirection: 'row',
         justifyContent: 'space-between',

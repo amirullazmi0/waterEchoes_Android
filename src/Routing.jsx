@@ -30,7 +30,6 @@ function HomeScreen({ navigation }) {
         if (data === 'profil') {
             navigation.navigate("profil")
         }
-        console.log('Received data from Navbar:', data);
     };
     return (
         <>
@@ -54,7 +53,6 @@ function PredictionScreen({ navigation }) {
         if (data === 'profil') {
             navigation.navigate("profil")
         }
-        console.log('Received data from Navbar:', data);
     };
     return (
         <>
@@ -78,7 +76,6 @@ function ProfilScreen({ navigation }) {
         if (data === 'profil') {
             navigation.navigate("profil")
         }
-        console.log('Received data from Navbar:', data);
     };
     return (
         <>
@@ -101,7 +98,6 @@ function CalibrateScreen({ navigation }) {
         if (data === 'profil') {
             navigation.navigate("profil")
         }
-        console.log('Received data from Navbar:', data);
     };
     return (
         <>
@@ -112,10 +108,6 @@ function CalibrateScreen({ navigation }) {
 }
 
 export default function Routing() {
-    const handleData = (data) => {
-        // setNav('profil')
-        console.log('Received data from Navbar:', data);
-    };
     return (
         <>
             <NavigationContainer>

@@ -1,12 +1,17 @@
 import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Icon from 'react-native-vector-icons/FontAwesome5'
-const card = () => {
+
+const Card = ({ sensor }) => {
+    const [sen, setSen] = useState()
+    // useEffect(() => {
+    //     setSen(sensor)
+    // }, [])
     return (
         <>
             {/* PH */}
             <View style={styles.viewCard}>
-                <Text style={styles.textCard}>122,6</Text>
+                <Text style={styles.textCard}>{sensor.value1}</Text>
                 <View style={styles.viewGround}>
                     <Icon name="tint" size={20} />
                 </View>
@@ -14,7 +19,7 @@ const card = () => {
 
             {/* TDS */}
             <View style={styles.viewCard}>
-                <Text style={styles.textCard}>122,6</Text>
+                <Text style={styles.textCard}>{sensor.value2}</Text>
                 <View style={styles.viewGround}>
                     {/* <Text>TDS</Text> */}
                     <Icon name="rainbow" light size={20} />
@@ -23,7 +28,7 @@ const card = () => {
 
             {/* SUHU */}
             <View style={styles.viewCard}>
-                <Text style={styles.textCard}>122,6</Text>
+                <Text style={styles.textCard}>{sensor.value3}</Text>
                 <View style={styles.viewGround}>
                     <Icon name="thermometer-half" size={20} />
                 </View>
@@ -31,7 +36,7 @@ const card = () => {
 
             {/* SALINITAS */}
             <View style={styles.viewCard}>
-                <Text style={styles.textCard}>122,6</Text>
+                <Text style={styles.textCard}>{sensor.value4}</Text>
                 <View style={styles.viewGround}>
                     <Icon name="bolt" size={20} />
                 </View>
@@ -39,7 +44,7 @@ const card = () => {
 
             {/* AMONIA */}
             <View style={styles.viewCard}>
-                <Text style={styles.textCard}>122,6</Text>
+                <Text style={styles.textCard}>{sensor.value5}</Text>
                 <View style={styles.viewGround}>
                     <Icon name="virus" size={20} />
                 </View>
@@ -48,7 +53,7 @@ const card = () => {
     )
 }
 
-export default card
+export default Card
 
 const styles = StyleSheet.create({
     viewCard: {
